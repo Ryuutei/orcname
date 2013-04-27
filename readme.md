@@ -7,14 +7,14 @@ My brother gave me his base of names. Maybe some references to WH (?).
 Dependencies ?
 --------------
 
-    - ruby 1.8.7 (maybe less...)
+- ruby 1.8.7 (maybe less...)
 
-    - nothing else.
+- nothing else.
 
 Usage:
 ------
 
-in a prompt type:
+in a shell prompt type:
 
 `orcname.rb`
 
