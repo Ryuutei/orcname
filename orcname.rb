@@ -1,6 +1,8 @@
 #!/usr/bin/ruby
 # -*- coding: utf-8 -*-
 
+how = 20
+
 =begin ========================================================================
 #         USAGE: orcname.rb <true|false>
 #   DESCRIPTION:
@@ -12,6 +14,8 @@ __author__  = "Ryuutei, (ryuutei.at.work@gmail.com)"
 __doc__     = "Returns a random orc name with a random clan tag"
 __version__ = "1"
 #==============================================================================
+
+outs = 0..how
 
 $vowel    = ['a', 'o','u']
 $vowelCap = ['A', 'E', 'O', 'U']
@@ -115,4 +119,5 @@ def rnd(liste)
 #    puts englorc(true)
 #end
 
-(0..20).each { puts englorc(true) }
+outs.each { puts englorc(true) }
+

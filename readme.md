@@ -16,7 +16,11 @@ Usage:
 
 in a prompt type:
 
-    `orcname.rb`
+`orcname.rb`
+
+If you want more suggestions from the output edit file orcname.rb and change the number at line 4.
+
+`how = 999` for example.
 
 That's all folks.
 
