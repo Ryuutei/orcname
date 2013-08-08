@@ -14,13 +14,27 @@ Dependencies ?
 Usage:
 ------
 
-in a shell prompt type:
+in a shell prompt type orcname.rb with the number of suggestions you want:
 
-`orcname.rb`
+    ➜  namegen_orc git:(master) orcname.rb 9
 
-If you want more suggestions from the output edit file orcname.rb and change the number at line 4.
+    Bggong Amuuk Rocksmasher
 
-`how = 999` for example.
+    Tmak Eggaoth Wolfkiller
+
+    Ogoohong Mth Trolleater
+
+    Ugguogang Aggour Tng Bearfang
+
+    Z'guth Ehaoth Bearclaw
+
+    Zggoth Uduuk Oduurth Orctooth
+
+    M'hak Uggourth Eggaoth Rocksmasher
+
+    Bharth Ohoath Rockclaw
+
+    Adouggok Thrth Edaath Cavebone
 
 That's all folks.
 

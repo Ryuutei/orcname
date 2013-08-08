@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 # -*- coding: utf-8 -*-
 
-how = 20
+how = $*[0].to_i
 
 =begin ========================================================================
 #         USAGE: orcname.rb <true|false>
@@ -15,7 +15,7 @@ __doc__     = "Returns a random orc name with a random clan tag"
 __version__ = "1"
 #==============================================================================
 
-outs = 0..how
+outs = 1..how
 
 $vowel    = ['a', 'o','u']
 $vowelCap = ['A', 'E', 'O', 'U']
@@ -25,7 +25,7 @@ $startEntity = [
     "Cr"    ,
     "G"     , "Gr"    , "G'"    ,
     "K'"    , "Kr"    ,
-    "M"     ,
+    "M"     , "M'",
     "S"     ,
     "T"     , "Thr",
     "Z"     , "Z'" ]
@@ -102,10 +102,10 @@ def orcNameStart
     end
 end
 
-def orcNameMid 
+def orcNameMid
     rnd($midletter) + rnd($vowel) end
 
-def orcNameEnd 
+def orcNameEnd
     rnd($endletter) end
 
 def rnd(liste)
