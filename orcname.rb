@@ -1,123 +1,122 @@
 #!/usr/bin/ruby
 # -*- coding: utf-8 -*-
 
-how = $*[0].to_i
-
 =begin ========================================================================
-#         USAGE: orcname.rb <true|false>
+#         USAGE: orcname.rb <clan> <number>
 #   DESCRIPTION:
 #       OPTIONS:
-#  REQUIREMENTS: ruby 1.8.7
-#       CREATED:
+#  REQUIREMENTS: ruby 2
 =end ==========================================================================
-__author__  = "Ryuutei, (ryuutei.at.work@gmail.com)"
-__doc__     = "Returns a random orc name with a random clan tag"
-__version__ = "1"
+Author  = "Sebastien Blanc 龍帝〔ryuutei@gmail.com〕"
+Doc     = "Returns a random orc name with a random clan tag"
+Enc     = "utf8"
+Version = "1"
+Revision= "3"
 #==============================================================================
 
-outs = 1..how
-
-$vowel    = ['a', 'o','u']
-$vowelCap = ['A', 'E', 'O', 'U']
+$vowel    = ["a", "o", "u", "i", "e", ]
 
 $startEntity = [
-    "B"     , "Br"    ,
-    "Cr"    ,
-    "G"     , "Gr"    , "G'"    ,
-    "K'"    , "Kr"    ,
-    "M"     , "M'",
-    "S"     ,
-    "T"     , "Thr",
-    "Z"     , "Z'" ]
+    "B", "Br",
+    "Cr",
+    "G", "Gr", "G’",
+    "K’","Kr",
+    "M", "M’",
+    "S",
+    "T", "Thr",
+    "Z", "Z’",
+]
 
-$midletter = [
-    "d" ,
-    "g" , "gg",
-    'h' ,
-    "m" ]
+$midLetter = [
+    "d",
+    "g", "gg",
+    'h',
+    "m",
+]
 
-$endletter = [
-    "k"  ,
-    "r"  ,
+$endLetter = [
+    "k",
+    "r",
     "rth",
-    "th" ,
-    "ng" ]
+    "th",
+    "ng",
+]
 
 $clanStart = [
-    "Ball"  ,
-    "Bat"   ,
-    "Bear"  ,
-    "Blood" ,
-    "Cave"  ,
-    "Dog"   ,
-    "Foot"  ,
-    "Night" ,
-    "Nut"   ,
-    "Orc"   ,
-    "Rock"  ,
-    "Skull" ,
-    "Spear" ,
-    "Troll" ,
-    "Wolf" ]
+    "Ball",
+    "Bat",
+    "Bear",
+    "Blood",
+    "Cave",
+    "Foot",
+    "Night",
+    "Nut",
+    "Orc", "Man",
+    "Rock",
+    "Skull",
+    "Spear",
+    "Troll",
+    "Dog", "Wolf", 
+]
 
 $clanEnd = [
-    "axe"    ,
-    "bone"   ,
-    "claw"   ,
+    "axe",
+    "bone",
+    "claw",
     "crusher",
-    "eater"  ,
-    "fang"   ,
-    "killer" ,
+    "eater",
+    "fang",
+    "killer",
     "slammer",
     "smasher",
-    "tooth"  ]
+    "tooth",
+]
 
 #===============================================================================
+
+def main
+    χi = $*.clone
+    if χi.length == 0 then 
+        puts englorc false
+    elsif χi.index "clan" then
+        χi.delete_at(χi.index "clan")
+        χi[0].to_i.times { puts englorc true }
+    else
+        χi[0].to_i.times { puts englorc false }
+    end
+end
 
 def englorc(clan=true)
     if clan == true then
         "#{masterOrcName} #{masterClan}"
-    else masterOrcName end
+    else masterOrcName
+    end
 end
-
-def masterClan ; "#{rnd($clanStart)}#{rnd($clanEnd)}" end
 
 def masterOrcName
-    ii = 0..rand(2)
     im = "#{orcNameStart}#{orcNameMid}#{orcNameEnd}"
-    if ii != 0 then
-        ii.each { im += " #{orcNameStart}#{orcNameEnd}" }
-    end
-    return im
+    rand(3).times { im += " #{orcNameStart}#{orcNameEnd}" }
+    return im.capitalize
 end
 
+def masterClan ; "#{$clanStart[rand($clanStart.length)]}#{$clanEnd[rand($clanEnd.length)]}" end
+
 def orcNameStart
-    some = rand
-    if some < 0.7 then
-        "#{rnd($vowelCap)}#{orcNameMid}#{rnd($vowel)}"
-    elsif some < 0.3 then
-        "#{rnd($startEntity)} #{rnd($vowel)}"
+    χt = rand
+    if χt < 0.7 then
+        "#{$vowel[rand($vowel.length)]}#{orcNameMid}#{$vowel[rand($vowel.length() -1)]}"
+    elsif χt < 0.3 then
+        "#{$startEntity[rand($startEntity.length)]} #{$vowel[rand($vowel.length() -1)]}"
     else
-        "#{rnd($startEntity)}"
+        $startEntity[rand($startEntity.length)]
     end
 end
 
 def orcNameMid
-    rnd($midletter) + rnd($vowel) end
+    # Returns a middle particule for the orc name.
+    "#{$midLetter[rand($midLetter.length)]}#{$vowel[rand($vowel.length() -1)]}"
+end
 
-def orcNameEnd
-    rnd($endletter) end
+def orcNameEnd ; $endLetter[rand($endLetter.length)] end
 
-def rnd(liste)
-    return "#{liste[rand(liste.length)]}" end
-
-#if $* == [] then
-#    puts englorc()
-#elsif $*[0] == 'false' then
-#    puts englorc()
-#elsif $*[0] == 'true' then
-#    puts englorc(true)
-#end
-
-outs.each { puts englorc(true) }
-
+main

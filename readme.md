@@ -7,25 +7,22 @@ My brother gave me his base of names. Maybe some references to WH (?).
 Dependencies ?
 --------------
 
-- ruby 1.8.7 (maybe less...)
-
-- nothing else.
+- ruby 2
 
 Usage:
 ------
 
 in a shell prompt type orcname.rb with the number of suggestions you want:
 
-    ➜  namegen_orc git:(master) orcname.rb 9
-    Bggong Amuuk Rocksmasher
-    Tmak Eggaoth Wolfkiller
-    Ogoohong Mth Trolleater
-    Ugguogang Aggour Tng Bearfang
-    Z'guth Ehaoth Bearclaw
-    Zggoth Uduuk Oduurth Orctooth
-    M'hak Uggourth Eggaoth Rocksmasher
-    Bharth Ohoath Rockclaw
-    Adouggok Thrth Edaath Cavebone
+    ➜  namegen_orc git:(master) orcname.rb 3
+    Iggoimor brk uduak
+    Udiiding
+    Uduimik
+    ➜  namegen_orc git:(master) orcname.rb 3 clan
+    Egoahing Nuttooth
+    Amiodang grth ohoang Bearcrusher
+    Aggioggirth zth Rockkiller
+
 
 That's all folks.
 
